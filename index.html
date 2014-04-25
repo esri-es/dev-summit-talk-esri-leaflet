@@ -64,11 +64,13 @@
 
 				<section class="left">
 					<h1>Mapping with Leaflet</h1>
-					<h3>Patrick Arlt</h3>
-					<p>Experience Developer - Esri Portland R&D Center</p>
-					<p><a href="http://twitter.com/patrickarlt">@patrickarlt</a> - <a href="http://patrickarlt.github.io/dev-summit-talk-esri-leaflet/">http://bit.ly/1qmxndx</a></p>
+					<h3>Javier Abadía y Raúl Jiménez</h3>
+					<p>Technical Marketing - Esri España</p>
+					<p>Presentación adaptada de la charla original en el <a href="http://proceedings.esri.com/library/userconf/devsummit14/index.html">DevSummit de Esri 2014</a>
+					por <a href="http://twitter.com/patrickarlt">@patrickarlt</a> - <a href="http://patrickarlt.github.io/dev-summit-talk-esri-leaflet/">http://bit.ly/1qmxndx</a></p>					
 				</section>
 
+				<!--
 				<section>
 					<h2>Who am I?</h2>
 					<ul>
@@ -78,7 +80,8 @@
 						<li>I didn't know what spatial references, projects, mercator or renderers were</li>
 					</ul>
 				</section>
-
+				-->
+				
 				<section>
 					<h2>How I approch the JS API</h2>
 					<h3 class="fragment">The JS API is a framework not a library</h3>
@@ -116,7 +119,7 @@
 						<li class="fragment">Defines the what you can do and tells you how to do it</li>
 						<li class="fragment">Dojo is the framework, the JS API is the library</li>
 						<li class="fragment">API is overly complex and non-intuitive (for non-GIS)</li>
-						<li class="fragment">Diffucult to seperate Dojo from the JS API</li>
+						<li class="fragment">Difficult to seperate Dojo from the JS API</li>
 					</ul>
 				</section>
 
@@ -132,7 +135,7 @@
 
 				<section class="left">
 							<pre><code class="javascript">// create a map in the "map" div, set the view to a given lat/lng and zoom
-var map = L.map('map').setView([ 33.8253818684, -116.5369606018], 16);
+var map = L.map('map').setView([40.4193, -3.6931], 16);
 
 // add tiles from OpenStreetMap
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -169,7 +172,7 @@ polygon.on("click", function(e){
 					<ul>
 						<li class="fragment">Simple - Uses Lat/Lng everywhere, no projections</li>
 						<li class="fragment">Literal - Obvious class and method names</li>
-						<li class="fragment">Consistant - Strict adherance to its own standards</li>
+						<li class="fragment">Consistent - Strict adherance to its own standards</li>
 						<li class="fragment">Fully Featured - Styling, Popups, Events</li>
 						<li class="fragment">Extendable - Classes, events, lots of utilities</li>
 					</ul>
@@ -385,7 +388,7 @@ searchControl.on("results", function(e){
 			});
 
 			(function(){
-				var map = L.map('map-leaflet-tiles').setView([ 33.8253818684, -116.5369606018], 16);
+				var map = L.map('map-leaflet-tiles').setView([ 40.4193, -3.6931], 16);
 
 				// add tiles from OpenStreetMap
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
