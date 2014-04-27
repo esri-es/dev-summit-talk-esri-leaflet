@@ -146,23 +146,23 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 				<section class="left">
 							<pre><code class="javascript">// create a marker and add it to the map
-var marker = new L.Marker([  33.82538186847268, -116.53696060180664]).addTo(map2);
+var marker = new L.Marker([ 40.411440, -3.676203]).addTo(map2);
 
 // create a polygon and add it to the map
-var polygon = new L.Polygon([[33.82667422214127, -116.53944969177246],[33.82485600863029, -116.53942823410033],[33.82476687952293, -116.54174566268921],[33.82325167048341, -116.54170274734497],[33.82325167048341, -116.537024974823],[33.8267098730001, -116.53708934783934],[33.82667422214127, -116.53944969177246]]).addTo(map2);</code></pre>
+var polygon = new L.Polygon([[40.421438, -3.680194], [40.411440, -3.676203], [40.408270, -3.678478], [40.408956, -3.685816], [40.407322, -3.686632], [40.407486, -3.688348], [40.419510, -3.688563]]).addTo(map2);</code></pre>
 							<div id="map-leaflet-layers" style="height:50vh;"></div>
 				</section>
 
 				<section class="left">
 					<pre><code class="javascript">// bind a popup to our marker
-marker.bindPopup("&lt;p&gt;Welome to Dev Summit!&lt;p&gt;");</code></pre>
+marker.bindPopup("&lt;p&gt;Hola Mundo!&lt;p&gt;");</code></pre>
 					<div id="map-leaflet-popups" style="height:50vh;"></div>
 				</section>
 
 				<section class="left">
 					<pre><code class="javascript">// listen for click events on the polygon
 polygon.on("click", function(e){
-	alert("You clicked on the polygon at " + e.latlng);
+	alert("Has hecho clic en el polígono en " + e.latlng);
 });</code></pre>
 					<div id="map-leaflet-interaction" style="height:50vh;"></div>
 				</section>
@@ -397,73 +397,73 @@ searchControl.on("results", function(e){
 			})();
 
 			(function(){
-				var map = L.map('map-leaflet-layers').setView([ 33.8253818684, -116.5369606018], 16);
+				var map = L.map('map-leaflet-layers').setView([ 40.414380, -3.683027], 14);
 
 				// add tiles from OpenStreetMap
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 				    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
 
-				var marker = new L.Marker([ 33.8253818684, -116.5369606018]).addTo(map);
+				var marker = new L.Marker([ 40.411440, -3.676203]).addTo(map);
 
 				var polygon = new L.Polygon([
-					[33.82667422214127, -116.53944969177246],
-					[33.82485600863029, -116.53942823410033],
-					[33.82476687952293, -116.54174566268921],
-					[33.82325167048341, -116.54170274734497],
-					[33.82325167048341, -116.537024974823],
-					[33.8267098730001, -116.53708934783934],
-					[33.82667422214127, -116.53944969177246]
+					[40.421438, -3.680194], 
+					[40.411440, -3.676203], 
+					[40.408270, -3.678478], 
+					[40.408956, -3.685816], 
+					[40.407322, -3.686632], 
+					[40.407486, -3.688348], 
+					[40.419510, -3.688563] 
 				]).addTo(map);
 			})();
 
 			(function(){
-				var map = L.map('map-leaflet-popups').setView([ 33.8253818684, -116.5369606018], 16);
+				var map = L.map('map-leaflet-popups').setView([ 40.414380, -3.683027], 14);
 
 				// add tiles from OpenStreetMap
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 				    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
 
-				var marker = new L.Marker([ 33.8253818684, -116.5369606018]).addTo(map);
+				var marker = new L.Marker([ 40.411440, -3.676203]).addTo(map);
 
 				var polygon = new L.Polygon([
-					[33.82667422214127, -116.53944969177246],
-					[33.82485600863029, -116.53942823410033],
-					[33.82476687952293, -116.54174566268921],
-					[33.82325167048341, -116.54170274734497],
-					[33.82325167048341, -116.537024974823],
-					[33.8267098730001, -116.53708934783934],
-					[33.82667422214127, -116.53944969177246]
+					[40.421438, -3.680194], 
+					[40.411440, -3.676203], 
+					[40.408270, -3.678478], 
+					[40.408956, -3.685816], 
+					[40.407322, -3.686632], 
+					[40.407486, -3.688348], 
+					[40.419510, -3.688563] 
 				]).addTo(map);
 
-				marker.bindPopup("<p>Welome to Dev Summit!</p>");
+				marker.bindPopup("<p>Hola Mundo!</p>");
 			})();
 
 			(function(){
-				var map = L.map('map-leaflet-interaction').setView([ 33.8253818684, -116.5369606018], 16);
+				var map = L.map('map-leaflet-interaction').setView([ 40.414380, -3.683027], 14);
 
 				// add tiles from OpenStreetMap
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 				    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
 
-				var marker = new L.Marker([ 33.8253818684, -116.5369606018]).addTo(map);
+				var marker = new L.Marker([ 40.411440, -3.676203]).addTo(map);
 
 				var polygon = new L.Polygon([
-					[33.82667422214127, -116.53944969177246],
-					[33.82485600863029, -116.53942823410033],
-					[33.82476687952293, -116.54174566268921],
-					[33.82325167048341, -116.54170274734497],
-					[33.82325167048341, -116.537024974823],
-					[33.8267098730001, -116.53708934783934],
-					[33.82667422214127, -116.53944969177246]
+					[40.421438, -3.680194], 
+					[40.411440, -3.676203], 
+					[40.408270, -3.678478], 
+					[40.408956, -3.685816], 
+					[40.407322, -3.686632], 
+					[40.407486, -3.688348], 
+					[40.419510, -3.688563]
 				]).addTo(map);
 
-				marker.bindPopup("<p>Welome to Dev Summit!</p>");
+				marker.bindPopup("<p>Hola Mundo!</p>");
 
 				polygon.on("click", function(e){
-					alert("You clicked on the polygon at " + e.latlng);
+					alert("Has hecho clic en el polígono en " + e.latlng);
 				});
 			})();
 
