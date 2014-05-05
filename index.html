@@ -201,10 +201,10 @@ polygon.on("click", function(e){
 
 				<section class="left">
 					<pre><code class="javascript">// create a map
-var map = new L.Map("map").setView([ 33.8253818684, -116.5369606018], 12);
+var map = new L.Map("map").setView([ 40.453020, -3.688328], 16);
 
 // add an ArcGIS Basemap
-var tiles = L.esri.basemapLayer("Topographic").addTo(map);</code></pre>
+var tiles = L.esri.basemapLayer("Imagery").addTo(map);</code></pre>
 					<div id="esri-leaflet-basemap" style="height:50vh;"></div>
 				</section>
 
@@ -227,21 +227,21 @@ var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/s
 				</section>
 
 				<section class="left">
-					<pre><code class="javascript">L.esri.featureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Parks_pdx/FeatureServer/0", {
+					<pre><code class="javascript">L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
 	style: function (feature) {
 	  return { color: "#70ca49", weight: 2 };
 	},
   onEachFeature: function (feature, layer) {
-    layer.bindPopup(feature.properties.NAME + "&lt;br&gt;" + feature.properties.ACRES + " Acres&lt;br&gt;Property ID "+feature.properties.PROPERTYID));
+    layer.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion));
   }
 }).addTo(map);</code></pre>
 					<div id="esri-leaflet-featurelayer" style="height:50vh;"></div>
 				</section>
 
 				<section class="left">
-<pre><code class="javascript">L.esri.clusteredFeatureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/stops/FeatureServer/0", {
+<pre><code class="javascript">L.esri.clusteredFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
 	onEachMarker: function(feature, marker) {
-    marker.bindPopup(feature.properties.stop_name+"<br>Stop ID: "+feature.properties.stop_id+"<br>"+feature.properties.stop_desc)
+    marker.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion)
   }
 }).addTo(map);</code></pre>
 					<div id="esri-leaflet-clustering" style="height:50vh;"></div>
@@ -323,7 +323,7 @@ searchControl.on("results", function(e){
 
 				<section class="left">
 					<h1>Thanks!</h1>
-					<p>Twitter : <a href="http://twitter.com/patrickarlt">@patrickarlt</a></p>
+					<p>Twitter : <a href="http://twitter.com/patrickarlt">@javierabadia & @hhkaos</a></p>
 					<p>Slides : <a href="http://patrickarlt.github.io/dev-summit-talk-esri-leaflet/">http://bit.ly/1qmxndx</a></p>
 					<div class="center-text">
 						<img src="esri-logo.png" alt="Esri" width="280" height="118" >
@@ -468,9 +468,9 @@ searchControl.on("results", function(e){
 			})();
 
 			(function(){
-				var map = new L.Map("esri-leaflet-basemap").setView([ 33.8253818684, -116.5369606018], 12);
+				var map = new L.Map("esri-leaflet-basemap").setView([ 40.453020, -3.688328], 17);
 
-				L.esri.basemapLayer("Topographic").addTo(map);
+				L.esri.basemapLayer("Imagery").addTo(map);
 			})();
 
 			(function(){
@@ -487,30 +487,30 @@ searchControl.on("results", function(e){
 			})();
 
 			(function(){
-	     	var map = L.map('esri-leaflet-featurelayer').setView([45.528, -122.680], 13);
+	     	var map = L.map('esri-leaflet-featurelayer').setView([40.411440, -3.676203], 13);
 
 	      L.esri.basemapLayer("Gray").addTo(map);
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
-	      L.esri.featureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Parks_pdx/FeatureServer/0", {
+	      L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
 	       style: function (feature) {
 	          return { color: "#70ca49", weight: 2 };
 	        },
           onEachFeature: function (feature, layer) {
-	          layer.bindPopup(feature.properties.NAME + "<br>" + feature.properties.ACRES + " Acres<br>Property ID "+feature.properties.PROPERTYID);
+	          layer.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion);
 	        }
 	      }).addTo(map);
 			})();
 
 			(function(){
-				var map = L.map('esri-leaflet-clustering').setView([45.5276173643906, -122.66736388203228], 13);
+				var map = L.map('esri-leaflet-clustering').setView([40.411440, -3.676203], 6);
 
 				L.esri.basemapLayer("Gray").addTo(map);
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
-				L.esri.clusteredFeatureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/stops/FeatureServer/0", {
+				L.esri.clusteredFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
 				  onEachMarker: function(feature, marker) {
-				    marker.bindPopup(feature.properties.stop_name+"<br>Stop ID: "+feature.properties.stop_id+"<br>"+feature.properties.stop_desc)
+				    marker.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion)
 				  }
 				}).addTo(map);
 			}());
