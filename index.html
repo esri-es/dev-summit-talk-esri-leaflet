@@ -119,7 +119,7 @@
 						<li class="fragment">Defines the what you can do and tells you how to do it</li>
 						<li class="fragment">Dojo is the framework, the JS API is the library</li>
 						<li class="fragment">API is overly complex and non-intuitive (for non-GIS)</li>
-						<li class="fragment">Difficult to seperate Dojo from the JS API</li>
+						<li class="fragment">Difficult to separate Dojo from the JS API</li>
 					</ul>
 				</section>
 
@@ -227,14 +227,17 @@ var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/s
 				</section>
 
 				<section class="left">
-					<pre><code class="javascript">L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
-	style: function (feature) {
-	  return { color: "#70ca49", weight: 2 };
-	},
+					<pre><code class="javascript">L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
+   style: function (feature) {
+      return { color: "#70ca49", weight: 2 };
+    },
   onEachFeature: function (feature, layer) {
-    layer.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion));
-  }
-}).addTo(map);</code></pre>
+      layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+      	feature.properties.Municipio + "<br>" + 
+      	feature.properties.Provincia + "<br>" +
+      	feature.properties.Precio95 + " €/litro<br>"
+      	);
+    }}).addTo(map);</code></pre>
 					<div id="esri-leaflet-featurelayer" style="height:50vh;"></div>
 				</section>
 
@@ -492,25 +495,35 @@ searchControl.on("results", function(e){
 	      L.esri.basemapLayer("Gray").addTo(map);
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
-	      L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
-	       style: function (feature) {
-	          return { color: "#70ca49", weight: 2 };
-	        },
-          onEachFeature: function (feature, layer) {
-	          layer.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion);
-	        }
-	      }).addTo(map);
+	      L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
+			style: function (feature) 
+			{
+			  return { color: "#70ca49", weight: 2 };
+			},
+			onEachFeature: function (feature, layer) 
+			{
+				layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+					feature.properties.Municipio + "<br>" + 
+					feature.properties.Provincia + "<br>" +
+					feature.properties.Precio95 + " €/litro<br>"
+				);	        
+			}
+			}).addTo(map);
 			})();
 
 			(function(){
 				var map = L.map('esri-leaflet-clustering').setView([40.411440, -3.676203], 6);
-
 				L.esri.basemapLayer("Gray").addTo(map);
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
-				L.esri.clusteredFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
+				L.esri.clusteredFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
 				  onEachMarker: function(feature, marker) {
-				    marker.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion)
+				    marker.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+					feature.properties.Municipio + "<br>" + 
+					feature.properties.Provincia + "<br>" +
+					feature.properties.Precio95 + " €/litro<br>"
+				);	 
+
 				  }
 				}).addTo(map);
 			}());
@@ -529,7 +542,7 @@ searchControl.on("results", function(e){
 			}())
 
 			(function(){
-	      var map = L.map('esri-leaflet-geocoding').setView([45.5165, -122.6764], 12);
+	      var map = L.map('esri-leaflet-geocoding').setView([40.411440, -3.676203], 12);
 
 	      var tiles = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
