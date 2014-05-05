@@ -119,7 +119,7 @@
 						<li class="fragment">Defines the what you can do and tells you how to do it</li>
 						<li class="fragment">Dojo is the framework, the JS API is the library</li>
 						<li class="fragment">API is overly complex and non-intuitive (for non-GIS)</li>
-						<li class="fragment">Difficult to seperate Dojo from the JS API</li>
+						<li class="fragment">Difficult to separate Dojo from the JS API</li>
 					</ul>
 				</section>
 
@@ -227,14 +227,17 @@ var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/s
 				</section>
 
 				<section class="left">
-					<pre><code class="javascript">L.esri.featureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Parks_pdx/FeatureServer/0", {
-	style: function (feature) {
-	  return { color: "#70ca49", weight: 2 };
-	},
+					<pre><code class="javascript">L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
+   style: function (feature) {
+      return { color: "#70ca49", weight: 2 };
+    },
   onEachFeature: function (feature, layer) {
-    layer.bindPopup(feature.properties.NAME + "&lt;br&gt;" + feature.properties.ACRES + " Acres&lt;br&gt;Property ID "+feature.properties.PROPERTYID));
-  }
-}).addTo(map);</code></pre>
+      layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+      	feature.properties.Municipio + "<br>" + 
+      	feature.properties.Provincia + "<br>" +
+      	feature.properties.Precio95 + " €/litro<br>"
+      	);
+    }}).addTo(map);</code></pre>
 					<div id="esri-leaflet-featurelayer" style="height:50vh;"></div>
 				</section>
 
@@ -487,30 +490,40 @@ searchControl.on("results", function(e){
 			})();
 
 			(function(){
-	     	var map = L.map('esri-leaflet-featurelayer').setView([45.528, -122.680], 13);
+	     	var map = L.map('esri-leaflet-featurelayer').setView([40,-3], 13);
 
 	      L.esri.basemapLayer("Gray").addTo(map);
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
-	      L.esri.featureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Parks_pdx/FeatureServer/0", {
-	       style: function (feature) {
-	          return { color: "#70ca49", weight: 2 };
-	        },
-          onEachFeature: function (feature, layer) {
-	          layer.bindPopup(feature.properties.NAME + "<br>" + feature.properties.ACRES + " Acres<br>Property ID "+feature.properties.PROPERTYID);
-	        }
-	      }).addTo(map);
+	      L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
+			style: function (feature) 
+			{
+			  return { color: "#70ca49", weight: 2 };
+			},
+			onEachFeature: function (feature, layer) 
+			{
+				layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+					feature.properties.Municipio + "<br>" + 
+					feature.properties.Provincia + "<br>" +
+					feature.properties.Precio95 + " €/litro<br>"
+				);	        
+			}
+			}).addTo(map);
 			})();
 
 			(function(){
-				var map = L.map('esri-leaflet-clustering').setView([45.5276173643906, -122.66736388203228], 13);
+				var map = L.map('esri-leaflet-clustering').setView([40, -3], 13);
 
 				L.esri.basemapLayer("Gray").addTo(map);
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
-				L.esri.clusteredFeatureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/stops/FeatureServer/0", {
+				L.esri.clusteredFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
 				  onEachMarker: function(feature, marker) {
-				    marker.bindPopup(feature.properties.stop_name+"<br>Stop ID: "+feature.properties.stop_id+"<br>"+feature.properties.stop_desc)
+				    marker.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+					feature.properties.Municipio + "<br>" + 
+					feature.properties.Provincia + "<br>" +
+					feature.properties.Precio95 + " €/litro<br>"
+				);	 
 				  }
 				}).addTo(map);
 			}());
