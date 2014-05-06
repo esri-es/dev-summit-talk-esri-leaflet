@@ -492,6 +492,26 @@ searchControl.on("results", function(e){
 				L.esri.basemapLayer("Gray").addTo(map);
 
 				var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/services/LandResourcesDivisionTractAndBoundaryService/MapServer").addTo(map);
+				
+				map.on('click', function(evt)
+				{
+					console.log(parks);
+					parks.identify(evt.latlng, function(data)
+					{
+						if( data.results && data.results.length > 0 )
+						{
+							var content = "";
+							for( field in data.results[0].attributes )
+							{
+								content += "<b>" + field + "</b>: " + data.results[0].attributes[field] + "<br>";
+							}
+							var popup = L.popup()
+								.setLatLng(evt.latlng)
+								.setContent(content)
+								.openOn(map);
+						}
+					});
+				});
 			})();
 
 			(function(){
