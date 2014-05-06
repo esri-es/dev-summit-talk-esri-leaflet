@@ -251,7 +251,8 @@ var map = new L.Map("map").setView([ 40.453020, -3.688328], 16);
 
 // add an ArcGIS Basemap
 var tiles = L.esri.basemapLayer("Imagery").addTo(map);</code></pre>
-					<div id="esri-leaflet-basemap" style="height:50vh;"></div>
+					<div id="esri-leaflet-basemap" style="height:50vh;width:65vh; float:left"></div>
+					<div id="esri-leaflet-basemap-manzanares" style="height:50vh;width:65vh;float:right" class="fragment"></div>
 				</section>
 
 				<section class="left">
@@ -525,6 +526,10 @@ searchControl.on("results", function(e){
 
 			(function(){
 				var map = new L.Map("esri-leaflet-basemap").setView([ 40.453020, -3.688328], 17);
+
+				L.esri.basemapLayer("Imagery").addTo(map);
+
+				var map = new L.Map("esri-leaflet-basemap-manzanares").setView([ 40.401663, -3.720640], 17);
 
 				L.esri.basemapLayer("Imagery").addTo(map);
 			})();
