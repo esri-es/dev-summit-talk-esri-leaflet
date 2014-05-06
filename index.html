@@ -71,7 +71,7 @@
 				</section>
 
 				<section>
-					<h2>¿De que va la charla?</h2>
+					<h2>¿De qué va la charla?</h2>
 					<ul>
 						<li>Hacer páginas web con un mapa embebido</li>
 						<li class="fragment">con tus propios datos</li>
@@ -80,7 +80,7 @@
 				</section>
 
 				<section>
-					<h2>¿Que hace falta?</h2>
+					<h2>¿Qué hace falta?</h2>
 					<ul>
 						<li class="fragment">API Javascript</li>
 						<li class="fragment">Mapas Base</li>
@@ -161,7 +161,7 @@
 				</section>
 
 				<section>
-					<h1>Leaflet</h1>
+					<h1>Leaflet <span style="font-size:20%"><a target="_blank" href="http://leafletjs.com">leafletjs.com</a></span></h1>
 					<ul>
 						<li class="fragment">Open source mapping <strong>library</strong></li>
 						<li class="fragment">Focused on a small (33kb), extensible API</li>
@@ -237,6 +237,7 @@ polygon.on("click", function(e){
 					<h4 class="fragment">...los mapas base de ArcGIS Online?</h3>
 					<h4 class="fragment">...la gestión de datos geográficos de ArcGIS for Server?</h3>
 					<h4 class="fragment">...el alojamiento en la nube de datos geográficos de ArcGIS Online?</h3>
+					<h2 class="fragment">REST</h2>
 				</section>
 
 				<section>
@@ -317,6 +318,7 @@ searchControl.on("results", function(e){
 					<div id="esri-leaflet-geocoding" style="height:50vh;"></div>
 				</section>
 
+<!--
 				<section>
 <pre><code class="javascript">var layer = L.esri.Demographics.demographicLayer('USAHealthCareSpending', {
 	token: "A ArcGIS Online Token"
@@ -333,7 +335,7 @@ searchControl.on("results", function(e){
 						<li>Open Source</li>
 					</ul>
 				</section>
-
+-->
 				<section>
 					<h1>Smackdown!</h1>
 					<h4 class="fragment">Who Wins?</h4>
@@ -632,6 +634,11 @@ searchControl.on("results", function(e){
 				var map = L.map('esri-leaflet-geocoding').setView([40.411440, -3.676203], 12);
 
 				var tiles = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+				/*
+				var tiles = L.tileLayer("http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg").addTo(map);
+				L.tileLayer("http://{s}.tile.stamen.com/toner-lines/{z}/{x}/{y}.png").addTo(map);
+				L.tileLayer("http://{s}.tile.stamen.com/toner-labels/{z}/{x}/{y}.png").addTo(map);
+				*/
 
 				// create the geocoding control and add it to the map
 				var searchControl = new L.esri.Controls.Geosearch().addTo(map);
