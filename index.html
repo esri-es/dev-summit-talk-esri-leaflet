@@ -67,7 +67,7 @@
 					<h3>Javier Abadía y Raúl Jiménez</h3>
 					<p>Technical Marketing - Esri España</p>
 					<p>Presentación adaptada de la charla original en el <a href="http://proceedings.esri.com/library/userconf/devsummit14/index.html">DevSummit de Esri 2014</a>
-					por <a href="http://twitter.com/patrickarlt">@patrickarlt</a> - <a href="http://patrickarlt.github.io/dev-summit-talk-esri-leaflet/">http://bit.ly/1qmxndx</a></p>					
+					por <a href="http://twitter.com/patrickarlt">@patrickarlt</a> - <a href="http://patrickarlt.github.io/dev-summit-talk-esri-leaflet/">http://bit.ly/1qmxndx</a></p>                  
 				</section>
 
 				<!--
@@ -139,7 +139,7 @@ var map = L.map('map').setView([40.4193, -3.6931], 16);
 
 // add tiles from OpenStreetMap
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
 }).addTo(map);</code></pre>
 							<div id="map-leaflet-tiles" style="height:50vh;"></div>
 				</section>
@@ -229,22 +229,22 @@ var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/s
 				<section class="left">
 					<pre><code class="javascript">L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
    style: function (feature) {
-      return { color: "#70ca49", weight: 2 };
-    },
+	  return { color: "#70ca49", weight: 2 };
+	},
   onEachFeature: function (feature, layer) {
-      layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
-      	feature.properties.Municipio + "<br>" + 
-      	feature.properties.Provincia + "<br>" +
-      	feature.properties.Precio95 + " €/litro<br>"
-      	);
-    }}).addTo(map);</code></pre>
+	  layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+		feature.properties.Municipio + "<br>" + 
+		feature.properties.Provincia + "<br>" +
+		feature.properties.Precio95 + " €/litro<br>"
+		);
+	}}).addTo(map);</code></pre>
 					<div id="esri-leaflet-featurelayer" style="height:50vh;"></div>
 				</section>
 
 				<section class="left">
 <pre><code class="javascript">L.esri.clusteredFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
 	onEachMarker: function(feature, marker) {
-    marker.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion)
+	marker.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion)
   }
 }).addTo(map);</code></pre>
 					<div id="esri-leaflet-clustering" style="height:50vh;"></div>
@@ -269,7 +269,7 @@ searchControl.on("results", function(e){
 
 				<section>
 <pre><code class="javascript">var layer = L.esri.Demographics.demographicLayer('USAHealthCareSpending', {
-    token: "A ArcGIS Online Token"
+	token: "A ArcGIS Online Token"
 }).addTo(map);</code></pre>
 					<img src="demographic-map.png" alt="USA Health Care Spending">
 				</section>
@@ -365,12 +365,12 @@ searchControl.on("results", function(e){
 				history: true,
 				center: false,
 
- 				// Factor of the display size that should remain empty around the content
-    		margin: 0.1,
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
 
-    		// Bounds for smallest/largest possible scale to apply to content
-		    minScale: 1.0,
-		    maxScale: 1.0,
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 1.0,
+				maxScale: 1.0,
 
 				theme: 'esri', // available themes are in /css/theme
 				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
@@ -395,7 +395,7 @@ searchControl.on("results", function(e){
 
 				// add tiles from OpenStreetMap
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-				    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+					attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
 			})();
 
@@ -404,7 +404,7 @@ searchControl.on("results", function(e){
 
 				// add tiles from OpenStreetMap
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-				    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+					attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
 
 				var marker = new L.Marker([ 40.411440, -3.676203]).addTo(map);
@@ -425,7 +425,7 @@ searchControl.on("results", function(e){
 
 				// add tiles from OpenStreetMap
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-				    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+					attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
 
 				var marker = new L.Marker([ 40.411440, -3.676203]).addTo(map);
@@ -448,7 +448,7 @@ searchControl.on("results", function(e){
 
 				// add tiles from OpenStreetMap
 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-				    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+					attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
 
 				var marker = new L.Marker([ 40.411440, -3.676203]).addTo(map);
@@ -477,38 +477,38 @@ searchControl.on("results", function(e){
 			})();
 
 			(function(){
-	      var map = L.map('esri-leaflet-tiles').setView([46.3, -60.7], 9);
-	      var charts = new L.esri.TiledMapLayer("http://services.arcgisonline.com/ArcGIS/rest/services/Specialty/World_Navigation_Charts/MapServer").addTo(map);
+				var map = L.map('esri-leaflet-tiles').setView([46.3, -60.7], 9);
+				var charts = new L.esri.TiledMapLayer("http://services.arcgisonline.com/ArcGIS/rest/services/Specialty/World_Navigation_Charts/MapServer").addTo(map);
 			})();
 
 			(function(){
-	      var map = L.map('esri-leaflet-dynamic').setView([36.272228, -116.817001], 7);
+				var map = L.map('esri-leaflet-dynamic').setView([36.272228, -116.817001], 7);
 
-	      L.esri.basemapLayer("Gray").addTo(map);
+				L.esri.basemapLayer("Gray").addTo(map);
 
-	      var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/services/LandResourcesDivisionTractAndBoundaryService/MapServer").addTo(map);
+				var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/services/LandResourcesDivisionTractAndBoundaryService/MapServer").addTo(map);
 			})();
 
 			(function(){
-	     	var map = L.map('esri-leaflet-featurelayer').setView([40.411440, -3.676203], 13);
+				var map = L.map('esri-leaflet-featurelayer').setView([40.411440, -3.676203], 13);
 
-	      L.esri.basemapLayer("Gray").addTo(map);
+				L.esri.basemapLayer("Gray").addTo(map);
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
-	      L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
-			style: function (feature) 
-			{
-			  return { color: "#70ca49", weight: 2 };
-			},
-			onEachFeature: function (feature, layer) 
-			{
-				layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
-					feature.properties.Municipio + "<br>" + 
-					feature.properties.Provincia + "<br>" +
-					feature.properties.Precio95 + " €/litro<br>"
-				);	        
-			}
-			}).addTo(map);
+				L.esri.featureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
+				style: function (feature) 
+				{
+					return { color: "#70ca49", weight: 2 };
+				},
+				onEachFeature: function (feature, layer) 
+				{
+					layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+						feature.properties.Municipio + "<br>" + 
+						feature.properties.Provincia + "<br>" +
+						feature.properties.Precio95 + " €/litro<br>"
+					);          
+				}
+				}).addTo(map);
 			})();
 
 			(function(){
@@ -517,52 +517,52 @@ searchControl.on("results", function(e){
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
 				L.esri.clusteredFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
-				  onEachMarker: function(feature, marker) {
-				    marker.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
-					feature.properties.Municipio + "<br>" + 
-					feature.properties.Provincia + "<br>" +
-					feature.properties.Precio95 + " €/litro<br>"
-				);	 
-
-				  }
+					onEachMarker: function(feature, marker) 
+					{
+						marker.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+							feature.properties.Municipio + "<br>" + 
+							feature.properties.Provincia + "<br>" +
+							feature.properties.Precio95 + " €/litro<br>"
+						);
+			 		}
 				}).addTo(map);
 			}());
 
 			(function(){
 				Reveal.addEventListener( 'heatmap', function() {
-					var map = new L.Map("esri-leaflet-heatmap").setView([ 40.70484714530104, -73.94674301147461], 14);
+				var map = new L.Map("esri-leaflet-heatmap").setView([ 40.70484714530104, -73.94674301147461], 14);
 
-		      L.esri.basemapLayer("Gray").addTo(map);
-		      L.esri.basemapLayer("GrayLabels").addTo(map);
+				L.esri.basemapLayer("Gray").addTo(map);
+				L.esri.basemapLayer("GrayLabels").addTo(map);
 
-					var heat = new L.esri.HeatMapFeatureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Graffiti_Locations3/FeatureServer/0", {
-		        radius: 12
-		      }).addTo(map);
+				var heat = new L.esri.HeatMapFeatureLayer("http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Graffiti_Locations3/FeatureServer/0", {
+					radius: 12
+					}).addTo(map);
 				}, false );
 			}())
 
 			(function(){
-	      var map = L.map('esri-leaflet-geocoding').setView([40.411440, -3.676203], 12);
+				var map = L.map('esri-leaflet-geocoding').setView([40.411440, -3.676203], 12);
 
-	      var tiles = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+				var tiles = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
-	      // create the geocoding control and add it to the map
-	      var searchControl = new L.esri.Controls.Geosearch().addTo(map);
+				// create the geocoding control and add it to the map
+				var searchControl = new L.esri.Controls.Geosearch().addTo(map);
 
-	      // create an empty layer group to store the results and add it to the map
-	      var results = new L.LayerGroup().addTo(map);
+				// create an empty layer group to store the results and add it to the map
+				var results = new L.LayerGroup().addTo(map);
 
-	      // listen for the results event and add every result to the map
-	      searchControl.on("results", function(data){
-	        results.clearLayers();
-	        for (var i = data.results.length - 1; i >= 0; i--) {
-	          results.addLayer(L.marker(data.results[i].latlng));
-	        };
-	      });
+				// listen for the results event and add every result to the map
+				searchControl.on("results", function(data){
+					results.clearLayers();
+					for (var i = data.results.length - 1; i >= 0; i--) {
+						results.addLayer(L.marker(data.results[i].latlng));
+					};
+				});
 
-	      searchControl.on("error", function(e){
-	        console.log(e);
-	      });
+				searchControl.on("error", function(e){
+					console.log(e);
+				});
 			}());
 		</script>
 
