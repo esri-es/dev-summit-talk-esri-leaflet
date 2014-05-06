@@ -222,7 +222,8 @@ var charts = new L.esri.TiledMapLayer("http://services.arcgisonline.com/ArcGIS/r
 
 L.esri.basemapLayer("Gray").addTo(map);
 
-var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/services/LandResourcesDivisionTractAndBoundaryService/MapServer").addTo(map);</code></pre>
+var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/services/LandResourcesDivisionTractAndBoundaryService/MapServer"
+).addTo(map);</code></pre>
 					<div id="esri-leaflet-dynamic" style="height:50vh;"></div>
 				</section>
 
@@ -232,11 +233,11 @@ var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/s
 	  return { color: "#70ca49", weight: 2 };
 	},
   onEachFeature: function (feature, layer) {
-	  layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
-		feature.properties.Municipio + "<br>" + 
-		feature.properties.Provincia + "<br>" +
-		feature.properties.Precio95 + " €/litro<br>"
-		);
+		layer.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+			feature.properties.Municipio + "<br>" + 
+			feature.properties.Provincia + "<br>" +
+			feature.properties.Precio95 + " €/litro<br>"
+		);          
 	}}).addTo(map);</code></pre>
 					<div id="esri-leaflet-featurelayer" style="height:50vh;"></div>
 				</section>
@@ -244,7 +245,11 @@ var parks = new L.esri.DynamicMapLayer("http://mapservices.nps.gov/arcgis/rest/s
 				<section class="left">
 <pre><code class="javascript">L.esri.clusteredFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/arcgis/rest/services/Gasolinerasshape/FeatureServer/0", {
 	onEachMarker: function(feature, marker) {
-	marker.bindPopup('Gasolinera '+feature.properties.Rotulo + "<br>Dirección:<br>" + feature.properties.Direccion)
+		marker.bindPopup("<b>" + feature.properties.Rotulo + "</b><br>" + 
+			feature.properties.Municipio + "<br>" + 
+			feature.properties.Provincia + "<br>" +
+			feature.properties.Precio95 + " €/litro<br>"
+		);
   }
 }).addTo(map);</code></pre>
 					<div id="esri-leaflet-clustering" style="height:50vh;"></div>
@@ -512,7 +517,7 @@ searchControl.on("results", function(e){
 			})();
 
 			(function(){
-				var map = L.map('esri-leaflet-clustering').setView([40.411440, -3.676203], 6);
+				var map = L.map('esri-leaflet-clustering').setView([40.405, -3.676203], 15);
 				L.esri.basemapLayer("Gray").addTo(map);
 				L.esri.basemapLayer("GrayLabels").addTo(map);
 
@@ -526,8 +531,23 @@ searchControl.on("results", function(e){
 						);
 			 		}
 				}).addTo(map);
-			}());
+			})();
 
+			/*
+			(function(){
+				Reveal.addEventListener( 'heatmap', function() {
+				var map = new L.Map("esri-leaflet-heatmap").setView([ 40.405, -3.676203], 10);
+
+				L.esri.basemapLayer("Gray").addTo(map);
+				L.esri.basemapLayer("GrayLabels").addTo(map);
+
+				var heat = new L.esri.HeatMapFeatureLayer("http://services3.arcgis.com/gzPLi0vbk0c1QVGb/ArcGIS/rest/services/Gasolinerasshape/FeatureServer/0", {
+					radius: 45
+					}).addTo(map);
+				}, false );
+			})()
+			//*/
+			/**/
 			(function(){
 				Reveal.addEventListener( 'heatmap', function() {
 				var map = new L.Map("esri-leaflet-heatmap").setView([ 40.70484714530104, -73.94674301147461], 14);
@@ -539,7 +559,8 @@ searchControl.on("results", function(e){
 					radius: 12
 					}).addTo(map);
 				}, false );
-			}())
+			})();
+			//*/
 
 			(function(){
 				var map = L.map('esri-leaflet-geocoding').setView([40.411440, -3.676203], 12);
@@ -563,7 +584,7 @@ searchControl.on("results", function(e){
 				searchControl.on("error", function(e){
 					console.log(e);
 				});
-			}());
+			})();
 		</script>
 
 	</body>
